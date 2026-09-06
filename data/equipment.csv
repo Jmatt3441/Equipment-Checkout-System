@@ -1,0 +1,4 @@
+id,name,category,checked_out,checked_out_to,checkout_date
+1001,Laptop Dell Latitude,IT,0,,
+1002,Motorola Radio,Communications,0,,
+1003,Tool Kit,Maintenance,0,,
