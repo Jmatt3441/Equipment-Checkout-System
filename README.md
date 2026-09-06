@@ -1,91 +1,110 @@
 # Equipment Checkout System
 
-A C++ console-based equipment tracking application designed to manage the check-in and check-out of shared tools, devices, and other organizational equipment.
+A complete C++17 equipment accountability application for tracking shared tools, devices, radios, computers, keys, and other organizational assets through checkout and return workflows.
 
-## Overview
+## Features
 
-The Equipment Checkout System was created to solve a common inventory-management problem: keeping track of who has a piece of equipment, when it was checked out, and whether it has been returned.
-
-The application demonstrates practical use of C++ for a real-world business workflow and is intended to provide a simple foundation for equipment accountability in environments such as:
-
-- Security operations
-- Warehouses and logistics facilities
-- IT departments
-- Maintenance teams
-- Schools and training facilities
-- Offices with shared equipment
-
-## Project Goals
-
-The goal of this project is to make equipment accountability simple and organized while demonstrating core C++ programming concepts including data management, program flow, validation, and object-oriented design.
-
-## Core Features
-
-The system is designed around the following functions:
-
-- Add equipment to an inventory
-- View available equipment
+- Add equipment to inventory
+- View all equipment and current status
 - Check equipment out to a user
-- Record who currently has an item
-- Check equipment back in
-- Track equipment status
-- Prevent unavailable equipment from being checked out twice
-- Display checkout and inventory information
-- Provide a straightforward menu-driven interface
+- Automatically record checkout dates
+- Return checked-out equipment
+- Prevent duplicate checkout of unavailable items
+- Search by ID, name, category, or assigned user
+- View all currently checked-out equipment
+- View inventory totals and availability
+- Persistent CSV storage between sessions
+- Sample inventory included
+- Input validation and duplicate-ID protection
+- Cross-platform CMake build
+- Automated Windows and Linux build checks with GitHub Actions
 
-## Example Workflow
+## Project Structure
 
-1. An administrator adds equipment to the system.
-2. A user requests an available item.
-3. The system records the checkout and changes the item's status.
-4. The item remains associated with that user until it is returned.
-5. When the equipment is checked back in, it becomes available again.
+```text
+Equipment-Checkout-System/
+├── include/
+│   ├── CheckoutSystem.h
+│   └── Equipment.h
+├── src/
+│   ├── CheckoutSystem.cpp
+│   └── main.cpp
+├── data/
+│   └── equipment.csv
+├── .github/workflows/
+│   └── build.yml
+├── CMakeLists.txt
+├── .gitignore
+└── README.md
+```
 
 ## Technologies
 
-- **Language:** C++
-- **Programming concepts:** Object-oriented programming, functions, conditionals, loops, collections, input validation, and structured data
-- **Development environment:** Visual Studio
-- **Version control:** Git and GitHub
+**C++17 · STL · OOP · File I/O · CSV Persistence · CMake · GitHub Actions**
+
+The program is compatible with Visual Studio/MSVC and standard GCC/Clang C++17 toolchains.
+
+## Build
+
+From the repository root:
+
+```bash
+cmake -S . -B build
+cmake --build build --config Release
+```
+
+On Windows, the executable will normally be located at:
+
+```text
+build/Release/EquipmentCheckoutSystem.exe
+```
+
+With a single-configuration generator:
+
+```text
+build/EquipmentCheckoutSystem
+```
+
+Run the application from the repository root so it can read and update `data/equipment.csv`.
+
+## Menu
+
+```text
+========================================
+       EQUIPMENT CHECKOUT SYSTEM
+========================================
+1. View all equipment
+2. Add equipment
+3. Check out equipment
+4. Return equipment
+5. Search equipment
+6. View checked-out equipment
+7. Inventory summary
+0. Save and exit
+========================================
+```
 
 ## Why I Built It
 
-This project combines software development with a practical operational problem. Organizations that share tools, radios, computers, keys, or other equipment need a reliable way to know what is available and what is currently assigned.
+This project applies software development to a real inventory and property-accountability workflow. Organizations that share equipment need a repeatable way to identify assets, determine availability, record who has an item, and return it to inventory.
 
-Rather than treating the project as only a programming exercise, the system was designed around a workflow that could be expanded into a real inventory and asset-management application.
+The project demonstrates practical C++ development, object-oriented design, file persistence, data validation, inventory-state management, and business-process modeling.
 
-## Planned Improvements
+## Example Inventory
 
-Future versions can expand the project with:
+The included sample data starts with:
 
-- Persistent file or database storage
-- Employee/user accounts
-- Due dates and overdue-item tracking
-- Equipment categories
-- Search and filtering
-- Checkout history
-- Administrative permissions
-- Barcode or QR-code support
-- Graphical user interface
-- Reporting and audit logs
+- Dell Latitude laptop
+- Motorola radio
+- Maintenance tool kit
 
-## Portfolio Skills Demonstrated
+Users can add additional assets directly through the application.
 
-This project demonstrates:
+## Future Improvements
 
-- C++ application development
-- Object-oriented programming
-- Business-process modeling
-- Inventory and asset-tracking logic
-- Data validation
-- Problem solving
-- Software design with future expansion in mind
+Planned expansion ideas include a graphical interface, SQLite/PostgreSQL database storage, user authentication, due dates, overdue alerts, barcode/QR scanning, equipment condition tracking, transaction history, audit reports, and web/mobile front ends.
 
-## Repository Status
+## Developer
 
-The project documentation is available here now. The complete application source code will be added to this repository as the project is prepared for public portfolio use.
-
----
-
-**Developer:** James Matthews  
-**Project:** Equipment Checkout System
+**James Matthews**  
+Computer Information Technology / Software Development Portfolio Project
